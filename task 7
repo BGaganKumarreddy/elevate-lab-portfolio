@@ -1,0 +1,83 @@
+//html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation | Task 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <h1 id="title">Welcome to My Page</h1>
+
+        <p id="description">
+            Click the button below to change this text and theme.
+        </p>
+
+        <button id="toggleBtn">Toggle Theme</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+//css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: white;
+    text-align: center;
+    border-radius: 6px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #1f2933;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #374151;
+}
+
+.dark-theme {
+    background-color: #1f2933;
+    color: white;
+}
+//java script
+// Selecting elements from the DOM
+const title = document.getElementById("title");
+const description = document.querySelector("#description");
+const button = document.getElementById("toggleBtn");
+const body = document.body;
+
+// Handling button click event
+button.addEventListener("click", function () {
+
+    // Toggle CSS class on body
+    body.classList.toggle("dark-theme");
+
+    // Change text dynamically
+    if (body.classList.contains("dark-theme")) {
+        title.textContent = "Dark Mode Enabled";
+        description.textContent = "JavaScript changed the content and styles.";
+    } else {
+        title.textContent = "Welcome to My Page";
+        description.textContent = "Click the button below to change this text and theme.";
+    }
+
+    // Debugging output
+    console.log("Button clicked. Theme toggled.");
+});
